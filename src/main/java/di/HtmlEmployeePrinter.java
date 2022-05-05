@@ -6,4 +6,9 @@ public class HtmlEmployeePrinter implements EmployeePrinter {
     public String print(Employee employee) {
             return "<html><body><h1>" + employee.getName() + "<br />" + employee.getYearOfBirth() + "</h1></body></html>";
     }
+
+    @Override
+    public String getType() {
+        return "html";
+    }
 }

@@ -12,4 +12,9 @@ public class JsonEmployeePrinter implements EmployeePrinter {
                 """.replace("${name}", employee.getName())
                 .replace("${year}", Integer.toString(employee.getYearOfBirth()));
     }
+
+    @Override
+    public String getType() {
+        return "json";
+    }
 }

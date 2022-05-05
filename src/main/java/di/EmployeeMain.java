@@ -5,7 +5,9 @@ public class EmployeeMain {
     public static void main(String[] args) {
 //        EmployeePrinter employeePrinter = new HtmlEmployeePrinter("csv");
 //        var employeePrinter = new CsvEmployeePrinter();
-        var employeePrinter = new JsonEmployeePrinter();
+        //var employeePrinter = new JsonEmployeePrinter();
+        var employeePrinter = new PrinterSimpleFactory().create("html");
+
         Employee e = new Employee("John Doe", 1980, employeePrinter);
         System.out.println(e.print());
 
@@ -13,7 +15,7 @@ public class EmployeeMain {
 
         System.out.println(e.print());
 
-        e.setEmployeePrinter(emp -> emp.getName());
+        //e.setEmployeePrinter(emp -> emp.getName());
         System.out.println(e.print());
 
     }
