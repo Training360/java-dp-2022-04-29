@@ -17,10 +17,17 @@ public class Forecast {
     }
 
     public static void main(String[] args) {
+        var target = new ConcreteTemperatureService();
+        var retry = new RetryTemperatureService(target, 100);
+        var converter = new ConverterTemperatureService(retry,
+                t -> 3 * t);
+
+
+        retry.setDelay(200);
+        converter.setFunction(t -> 4 * t);
+
         float result = new Forecast(
-                new ConverterTemperatureService(
-                new RetryTemperatureService(
-                new ConcreteTemperatureService())))
+                converter)
                 .getForcast("Budapest");
         System.out.println(result);
     }
